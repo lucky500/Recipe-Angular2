@@ -4,11 +4,11 @@ var uglify = require('gulp-uglify');
 
 var lib = require('bower-files')({
   "overrides":{
-    "bootstrap" : {
-      "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
+    materialize: {
+      main: [
+        'sass/materialize.scss',
+        'dist/css/materialize.css',
+        'dist/js/materialize.js',
       ]
     }
   }
