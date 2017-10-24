@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 
-import { Hero } from './hero';
+import { Recipe } from './recipe';
+import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,7 @@ import { Hero } from './hero';
             <span>{{recipe.id}}</span> - {{recipe.name}}
           </li>
         </ul>
-        <hero-detail [hero]="selectedHero"></hero-detail>
+        <recipe-detail [recipe]="selectedRecipe"></recipe-detail>
       </div>
     </div>
   </div>
@@ -30,23 +32,26 @@ import { Hero } from './hero';
     .recipes li:hover {
         color: #7f8c8d;
         left: .1em; }
-  `]
+  `],
+  providers: [RecipeService]
 })
 
-export class AppComponent {
-  title = 'List of Recipes';
-  recipes = RECIPES;
+export class AppComponent implements OnInit {
+  title = 'Recipes';
+  recipes: Recipe[];
   selectedRecipe: Recipe;
+
+  constructor(private recipeService: RecipeService) { }
+
+  getRecipes(): void {
+    this.recipes = this.recipeService.getRecipes();
+  }
+
+  ngOnInit(): void {
+    this.getRecipes();
+  }
+
   onSelect(recipe: Recipe): void {
     this.selectedRecipe = recipe;
   }
 }
-
-const RECIPES: Recipe[] = [
-  { id: 2, name: 'Zucchini Enchiladas'},
-  { id: 3, name: 'Chicken Zucchini Alfredo'},
-  { id: 4, name: 'Cheesesteak Stuffed Peppers'},
-  { id: 5, name: 'Mini Pepper Pizzas'},
-  { id: 6, name: 'Tuscan Spaghetti Squash'},
-  { id: 7, name: 'Zucchini Taco Roll-Ups'}
-];

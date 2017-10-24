@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Hero } from './hero';
+import { Recipe } from './recipe';
 
 @Component({
   selector: 'recipe-detail',
