@@ -1,0 +1,13 @@
+.recipes {
+  li {
+    color: #2c3e50;
+    &.selected:hover {
+      background-color: #2980b9 !important;
+      color: #ecf0f1;
+    }
+    &:hover {
+      color: #7f8c8d;
+      left: .1em;
+    }
+  }
+}
