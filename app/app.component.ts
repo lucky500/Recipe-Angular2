@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Hero } from './hero';
+
 @Component({
   selector: 'app-root',
   template: `
@@ -14,17 +16,6 @@ import { Component } from '@angular/core';
             <span>{{recipe.id}}</span> - {{recipe.name}}
           </li>
         </ul>
-        <div *ngIf="selectedRecipe">
-          <p>{{selectedRecipe.name}} details</p>
-          <div>
-            <label>id: </label>
-            {{selectedRecipe.id}}
-          </div>
-          <div>
-            <label>name: </label>
-            <input [(ngModel)]="selectedRecipe.name" placeholder="name">
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -48,11 +39,6 @@ export class AppComponent {
   onSelect(recipe: Recipe): void {
     this.selectedRecipe = recipe;
   }
-}
-
-export class Recipe {
-  id: number;
-  name: string;
 }
 
 const RECIPES: Recipe[] = [
