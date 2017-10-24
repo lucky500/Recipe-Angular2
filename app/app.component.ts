@@ -16,6 +16,7 @@ import { Hero } from './hero';
             <span>{{recipe.id}}</span> - {{recipe.name}}
           </li>
         </ul>
+        <hero-detail [hero]="selectedHero"></hero-detail>
       </div>
     </div>
   </div>
